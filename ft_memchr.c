@@ -13,30 +13,36 @@
 #include <stdio.h>
 #include <string.h>
 #include "libft.h"
+#include <unistd.h>
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t	i;
 	const unsigned char *str;
 
-	str = (unsigned char*)s;
+	str = s;
 	i = 0;
-	while (str[i] && i < n)
+	while (i < n && n > 0)
 	{
-		if (str[i] == c)
-			return ((void *)(s + i));
+		if (*(str + i) == (unsigned char)c)
+			return ((void*)(s + i));
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
-
+/*
 int main ()
 {
- 	char *name = "joao couto";
- 	name = ft_memchr(name, 'x', 9);
- 	printf("%s\n", name);
+	int i = 0;
+ 	char *name = " couto";
+ 	name = ft_memchr(name, ' ', 1);
+ 	printf("|%s|\n", name);
 
-	int tab[7] = {-49, 49, 1, -1, 0, -2, 2};
-	printf("%s", (char *)ft_memchr(tab, -1, 7));
-	
+	int arr[] = {0, 1, 2, -2, 3, 44, 5, 1333};
+	int *arr2;
+
+	arr2 = ft_memchr(arr, -2, 8);
+
+	printf("%d", arr2[0]);
 }
+*/
