@@ -1,13 +1,28 @@
-//#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joada-s2 <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/16 16:57:46 by joada-s2          #+#    #+#             */
+/*   Updated: 2023/10/19 16:51:37 by joada-s2         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-int     ft_isdigit(unsigned char c)
+
+int	ft_isdigit(int c)
 {
-    if (c > 47 && c < 58)
-        return (1);
-    return (0);
+	if (c > 47 && c < 58)
+	{
+		return (1);
+	}
+	else
+		return (0);
 }
 /*
-int main()
+int	main(void)
 {
     int i = ft_isdigit('Z');
     printf("%d", i);

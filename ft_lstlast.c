@@ -1,41 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joada-s2 <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 15:09:22 by joada-s2          #+#    #+#             */
-/*   Updated: 2023/10/20 15:09:31 by joada-s2         ###   ########.fr       */
+/*   Created: 2023/10/20 14:40:45 by joada-s2          #+#    #+#             */
+/*   Updated: 2023/10/20 14:40:47 by joada-s2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, char *src, size_t size)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	i;
-	size_t	len;
+	int		n;
+	t_list	*tmp;
 
-	len = ft_strlen(src);
-	if (size == 0)
-		return (len);
-	i = 0;
-	while (src && src[i] && i < size - 1)
+	n = ft_lstsize(lst);
+	if (n == 0)
 	{
-		dest[i] = src[i];
-		i++;
+		return (lst);
 	}
-	dest[i] = '\0';
-	return ((size_t)len);
+	tmp = lst;
+	while (n != 1)
+	{
+		tmp = tmp->next;
+		n--;
+	}
+	return (tmp);
 }
 /*
 int	main(void)
 {
-	char *str = "joaocouto3333333";     
-	char copia[10] = "";
+    t_list *head = NULL;
 
-	ft_strlcpy(copia, str, 0);
-	printf("--->%lu, %s\n", ft_strlcpy(copia, str, 10), copia);
-//	printf("--->%lu, %s\n", strlcpy(copia, str, 10), copia);
+    ft_lstadd_back(&head, ft_lstnew("1"));
+    ft_lstadd_back(&head, ft_lstnew("2"));
+    ft_lstadd_back(&head, ft_lstnew("3"));
+    
+    t_list *nova = ft_lstlast(head);
+
+    printf("%s and %p\n", (char*)nova->content, (t_list*)nova->next);
 }*/

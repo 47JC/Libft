@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joada-s2 <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 15:10:25 by joada-s2          #+#    #+#             */
-/*   Updated: 2023/10/20 15:10:33 by joada-s2         ###   ########.fr       */
+/*   Created: 2023/10/20 14:48:26 by joada-s2          #+#    #+#             */
+/*   Updated: 2023/10/20 14:48:38 by joada-s2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+t_list	*ft_lstnew(void *content)
 {
-	int	i;
+	t_list	*new;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }
 /*
 int	main(void)
 {
-    printf("O numero de chars é %d.\n", ft_strlen("12345678"));
+    t_list *nome = ft_lstnew("joao");
+    printf("%s", (char*)nome->context);
+    free(nome);
 }*/

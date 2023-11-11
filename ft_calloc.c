@@ -1,31 +1,29 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joada-s2 <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/19 16:44:24 by joada-s2          #+#    #+#             */
+/*   Updated: 2023/10/19 16:44:35 by joada-s2         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static void    *ft_memset(void *s, int c, size_t n)
+#include "libft.h"
+
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-    unsigned char *str;
-    size_t	i;
+	void	*p;
 
-    i = 0;
-    str = (unsigned char *) s;
-    while (i < n)
-        str[i++] = c;
-    return (s); 
-}
-
-void    *ft_calloc(int nmemb, int size)
-{
-    void    *p;
-
-    p = (void*)malloc(nmemb * size);
-    if(!p)
-        return (0);
-    ft_memset(p, '0', nmemb);
-    return (p);    
+	p = (void *)malloc(nmemb * size);
+	if (!p)
+		return (0);
+	ft_bzero(p, nmemb * size);
+	return (p);
 }
 /*
-int main()
+int	main(void)
 {
     char *pointer = (char *)ft_calloc( 4, sizeof(char));
     write(1, "--->", 4);

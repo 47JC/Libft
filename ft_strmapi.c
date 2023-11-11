@@ -1,42 +1,38 @@
-#include <stdlib.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joada-s2 <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/16 12:53:09 by joada-s2          #+#    #+#             */
+/*   Updated: 2023/10/16 12:54:44 by joada-s2         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static  int     len(char const *str)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-    int i = 0;
-    while (str[i])
-        i++;
-    return (i);
-}
+	unsigned int	lens;
+	unsigned int	i;
+	char			*str;
 
-static char funcao(unsigned int n, char c)
-{
-    (void) n;
-    return (c);
-}
-
-char    *ft_strmapi(char const *s, char (*f)(unsigned int, char))
-{
-    unsigned int lens;
-    unsigned int i;
-    char *str;
-
-    i = 0;
-    lens = len(s);
-    str = (char*)malloc(sizeof(char) * (lens + 1));
-    if (!str)
-        return (0);
-    while (s[i])
-    {
-        str[i] = f(i, s[i]);
-        i++;
-    }
-    str[i] = '\0';
-    return (str);    
+	i = 0;
+	lens = ft_strlen(s);
+	str = (char *)malloc(sizeof(char) * (lens + 1));
+	if (!str)
+		return (0);
+	while (s[i])
+	{
+		str[i] = f(i, s[i]);
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
 /*
-int main()
+int	main(void)
 {
     char *nome = "joaocouto";
 

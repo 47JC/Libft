@@ -1,19 +1,30 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joada-s2 <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/20 14:58:59 by joada-s2          #+#    #+#             */
+/*   Updated: 2023/10/20 14:59:07 by joada-s2         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-void    *ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
-    unsigned char *str;
-    size_t	i;
+	unsigned char	*str;
+	size_t			i;
 
-    i = 0;
-    str = (unsigned char *) s;
-    while (i < n)
-        str[i++] = c;
-    return (s); 
+	i = 0;
+	str = (unsigned char *)s;
+	while (i < n)
+		str[i++] = c;
+	return (s);
 }
 /*
-int     main()
+int	main(void)
 {
     char name[10] = "joaocouto";
     

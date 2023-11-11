@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joada-s2 <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 15:10:25 by joada-s2          #+#    #+#             */
-/*   Updated: 2023/10/20 15:10:33 by joada-s2         ###   ########.fr       */
+/*   Created: 2023/10/13 12:14:34 by joada-s2          #+#    #+#             */
+/*   Updated: 2023/10/13 12:29:13 by joada-s2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	while (s[i])
+		write(fd, &s[i++], 1);
 }
 /*
-int	main(void)
+int main (int argc, char **argv)
 {
-    printf("O numero de chars é %d.\n", ft_strlen("12345678"));
+	int	fd;
+
+	if (argc == 2)
+	{
+		fd = open("text.txt", O_WRONLY);
+		fd_putstr_fd(argv[1], fd);	
+	}
 }*/

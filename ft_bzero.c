@@ -6,18 +6,16 @@
 /*   By: joada-s2 <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:55:47 by joada-s2          #+#    #+#             */
-/*   Updated: 2023/10/05 16:31:28 by joada-s2         ###   ########.fr       */
+/*   Updated: 2023/10/19 16:40:49 by joada-s2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char *str;
-	size_t	i;
+	unsigned char	*str;
+	size_t			i;
 
 	i = 0;
 	str = s;
@@ -25,7 +23,7 @@ void	ft_bzero(void *s, size_t n)
 		*(str + i++) = 0;
 }
 /*
-int main()
+int	main(void)
 {
 	char nome[4] = "joao";
 

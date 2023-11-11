@@ -1,42 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joada-s2 <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 15:04:57 by joada-s2          #+#    #+#             */
-/*   Updated: 2023/10/20 15:04:58 by joada-s2         ###   ########.fr       */
+/*   Created: 2023/10/20 14:49:47 by joada-s2          #+#    #+#             */
+/*   Updated: 2023/10/20 14:49:48 by joada-s2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+int	ft_lstsize(t_list *lst)
 {
-	char	*nova;
-	int		i;
+	t_list	*tmp;
 	int		n;
 
-	n = 0;
-	i = ft_strlen(s1);
-	nova = (char *)malloc(sizeof(char) * (i + 1));
-	if (!nova)
+	n = 1;
+	tmp = lst;
+	if (!lst)
 		return (0);
-	while (s1[n])
+	while (tmp->next != NULL)
 	{
-		nova[n] = s1[n];
 		n++;
+		tmp = tmp->next;
 	}
-	nova[n] = '\0';
-	return (nova);
+	return (n);
 }
 /*
 int	main(void)
 {
-	char nome[] = "lorem ipsum dolor sit amet";
-	char *p = ft_strdup(nome);
+    t_list *head = ft_lstnew("couto");
+    t_list *new = ft_lstnew("joao");
+    t_list **pp = &head;
 
-	write(1, p, 26);
-	
+    ft_lstadd_front(pp, new);
+    pp = &head;
+    ft_lstadd_front(pp, ft_lstnew("1"));
+    pp = &head;
+    ft_lstadd_front(pp, ft_lstnew("2"));
+    pp = &head;
+    ft_lstadd_front(pp, ft_lstnew("3"));
+    printf("%d\n",ft_lstsize(head));
 }*/

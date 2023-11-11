@@ -10,45 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
-int     ft_strlen(char *str)
+
+size_t	ft_strlcat(char *dest, char *src, size_t size)
 {
-    int i;
+	size_t	len;
+	size_t	i;
+	size_t	j;
+	size_t	len_src;
 
-    i = 0;
-    while(str[i])
-        i++;
-    return (i);
-}
-
-size_t   ft_strlcat(char *dest, char *src, size_t size)
-{
-    size_t	len;
-    size_t	i;
-    size_t	j;
-    size_t	len_src;
-
-    len_src = (size_t)ft_strlen(src);
-    i = 0;
-    len = (size_t)ft_strlen(dest);
-    j = len;
-    if (size == 0)
-	    return (len_src);
-    while (src[i] && ((i + len) < size - 1))
-    	dest[j++] = src[i++];
-    dest[j] = '\0';
-    if (len >= size)
-	    len = size;
-    return ((size_t)len_src + len);
+	len_src = ft_strlen((const char *)src);
+	i = 0;
+	len = ft_strlen((const char *)dest);
+	j = len;
+	if (size == 0)
+		return (len_src);
+	while (src[i] && ((i + len) < size - 1))
+		dest[j++] = src[i++];
+	dest[j] = '\0';
+	if (len >= size)
+		len = size;
+	return ((size_t)len_src + len);
 }
 /*
-int     main()
+int	main(void)
 {
     char *nome;
+
     if (!(nome = (char *)malloc(sizeof(*nome) * 15)))
 		return (0);
     memset(nome, 0, 15);

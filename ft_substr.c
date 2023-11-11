@@ -1,40 +1,50 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joada-s2 <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/08 14:21:21 by joada-s2          #+#    #+#             */
+/*   Updated: 2023/10/13 11:19:58 by joada-s2         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
 
-int     len1(char *str)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-    int i = 0;
-    while (str[i])
-        i++;
-    return (i);
-}
-char    *ft_substr(char const *s, unsigned int start, size_t len)
-{
-    unsigned int     len_s;
-    unsigned int     n;
-    unsigned int     i;
-    char *sub;
+	unsigned int	n;
+	char			*sub;
+	char			*sub2;
 
-    n =  0;
-    i = start;
-    len_s = len1((char*)s);
-    if ((len_s - start) > len)
-        sub = (char *)malloc(sizeof(char) * len + 1);
-    else
-        sub = (char *)malloc(sizeof(char) * (len - start + 1));
-    if (!sub)
-        return (NULL);
-    while (s[start] && len--)
-        sub[n++] = s[start++];
-    sub[n] = '\0';
-    return (sub);
+	n = 0;
+	if (start > ft_strlen(s))
+	{
+		sub = (char *)malloc(sizeof(char) * 1);
+		if (!sub)
+			return (0);
+		sub[0] = 0;
+		return (sub);
+	}
+	sub = (char *)malloc(sizeof(char) * (len + 1));
+	if (!sub)
+		return (NULL);
+	while (s[start] && len--)
+		sub[n++] = s[start++];
+	sub[n] = '\0';
+	sub2 = ft_strdup((const char *)sub);
+	free(sub);
+	return (sub2);
 }
 /*
-int main(int argc, char **argv)
+int	main(void)
 {
-    if (argc)
-    {
-        printf("|%s|\n", ft_substr(argv[1], 5, 10));
-    }
+	char nome[] = "lorem ipsum dolor sit amet";
+	char *p = ft_substr(nome, 7, 10);
+	
+	write(1, "\n", 1);
+	write(1, p, 11);
+	write(1, "\n", 1);
+
 }*/

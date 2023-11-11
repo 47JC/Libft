@@ -1,31 +1,31 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joada-s2 <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/13 13:03:02 by joada-s2          #+#    #+#             */
+/*   Updated: 2023/10/13 13:15:05 by joada-s2         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int     ft_strlen(char *str)
+char	*ft_strrchr(const char *str, int c)
 {
-    int     i;
+	size_t	count;
 
-    i = 0;
-    while (str[i])
-        i++;
-    return (i);
+	count = ft_strlen(str);
+	while (count && str[count] != (unsigned char)c)
+		count--;
+	if (str[count] != (unsigned char)c && !count)
+		return (NULL);
+	return ((char *)(str + count));
 }
 
-char *ft_strrstr(char *str, int c)
-{
-    int     count;
-    int     i;
-
-    i = 0;
-    count = ft_strlen(str) - 1;
-    while (count > i && str[count] != c)
-        count--;
-    if (str[count] != c && count == i)
-        return (0);
-    return (str + count);
-}
 /*
-int main()
+int	main(void)
 {
     printf("-->%s\n", ft_strrstr("joaocaouto", 'a'));
 }*/
